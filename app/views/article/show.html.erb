@@ -1,0 +1,17 @@
+<% @comments.to_a.each do |comment| %>
+	<%= render 'comments_content', comment: comment %>
+	<hr/>
+<% end %>
+
+<% if user_signed_in? %>
+<%= form_for Comment.new, url: article_create_comment_path(article_id: @article.id), method: :post, html: {} do |f| %>
+<%= f.hidden_field :reply_id, value: @article.id %>
+<%= f.hidden_field :reply_type, value: 'Article' %>
+<div class="field">
+<%= f.text_area :content, required: true %>
+</div>
+
+</div>
+<%= f.submit "Comment" %>
+<% end %>
+<% end %>

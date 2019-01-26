@@ -1,0 +1,45 @@
+<div id="home-container">
+
+<br/>
+<div id="btnContainer">
+  <button class="btn" onclick="listView()"><i class="fa fa-bars"></i> List</button> 
+  <button class="btn" onclick="gridView()"><i class="fa fa-th-large"></i> Grid</button>
+  	<% if user_signed_in? %>
+  		<button class="btn pull-right" onclick="window.location='/article/new'" style="background-color: #181619; color: #a599aa;">Post Article</button>
+  	<% end %>
+</div>
+<br/>
+  <% @articles.to_a.each_slice(4).each do |batch_article| %>
+
+    <div class="row">
+      <% if batch_article[0].present? %>
+      <div class="index-column" style="background-color:#aaa;" onclick="window.location='/article/<%= batch_article[0].id %>'">
+        <h2><%= batch_article[0].title %></h2>
+        <p><%= batch_article[0].description %></p>
+      </div>
+      <% end %>
+      <% if batch_article[1].present? %>
+      <div class="index-column" style="background-color:#bbb;" onclick="window.location='/article/<%= batch_article[1].id %>'">
+        <h2><%= batch_article[1].title %></h2>
+        <p><%= batch_article[1].description %></p>
+      </div>
+      <% end %>
+    </div>
+
+    <div class="row">
+      <% if batch_article[2].present? %>
+      <div class="index-column" style="background-color:#ccc;" onclick="window.location='/article/<%= batch_article[2].id %>'">
+        <h2><%= batch_article[2].title %></h2>
+        <p><%= batch_article[2].description %></p>
+      </div>
+      <% end %>
+      <% if batch_article[3].present? %>
+      <div class="index-column" style="background-color:#ddd;" onclick="window.location='/article/<%= batch_article[3].id %>'">
+        <h2><%= batch_article[3].title %></h2>
+        <p><%= batch_article[3].description %></p>
+      </div>
+      <% end %>
+    </div>
+  <% end %>
+
+</div>

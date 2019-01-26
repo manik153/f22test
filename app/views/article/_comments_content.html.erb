@@ -1,0 +1,20 @@
+<div class="comment-content">
+<p><%= comment.content %>&nbsp;<i class="fa fa-reply" onclick="$('#reply-for-<%= comment.id %>').show();"></i></p>
+
+<% if user_signed_in? %>
+<%= form_for Comment.new, url: article_create_comment_path(article_id: @article.id), method: :post, html: {id: "reply-for-#{comment.id}", style: 'display:none;'} do |f| %>
+<%= f.hidden_field :reply_id, value: comment.id %>
+<%= f.hidden_field :reply_type, value: 'Comment' %>
+<div class="field">
+<%= f.text_area :content, required: true %>
+</div>
+
+<%= f.submit "Reply" %>
+<% end %>
+<% end %>
+
+<% comment.comments.each do |c| %>
+	<%= render 'comments_content', comment: c %>
+<% end %>
+</div>
+</div>
