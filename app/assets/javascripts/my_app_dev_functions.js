@@ -16,3 +16,25 @@ function gridView() {
     elements[i].style.width = "50%";
   }
 }
+
+function upvoteArticle(articleId) {
+  $.post("/article/"+articleId+"/article_vote",
+  {
+    voted: true
+  },
+  function(data, status){
+    $('#upvote-article-counter-'+articleId).text(data['upvote']);
+    $('#downvote-article-counter-'+articleId).text(data['downvote']);
+  });
+}
+
+function downvoteArticle(articleId) {
+  $.post("/article/"+articleId+"/article_vote",
+  {
+    voted: false
+  },
+  function(data, status){
+    $('#upvote-article-counter-'+articleId).text(data['upvote']);
+    $('#downvote-article-counter-'+articleId).text(data['downvote']);
+  });
+}

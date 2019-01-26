@@ -13,43 +13,19 @@
 
     <div class="row">
       <% if batch_article[0].present? %>
-      <div class="index-column" style="background-color:#aaa;">
-        <h2><a href='<%= batch_article[0].link.present? ? batch_article[0].link : "/article/#{batch_article[0].id}" %>'><%= batch_article[0].title %></a></h2>
-        <p><%= batch_article[0].description %></p>
-        <% if batch_article[0].user_id == current_user&.id %>
-        <a href="/article/<%= batch_article[0].id %>/edit"><i class="fa fa-edit"></i> Edit</p>
-        <% end %>
-      </div>
+        <%= render 'list_item', article: batch_article[0], color: '#aaa' %>
       <% end %>
       <% if batch_article[1].present? %>
-      <div class="index-column" style="background-color:#bbb;">
-        <h2><a href='<%= batch_article[1].link.present? ? batch_article[1].link : "/article/#{batch_article[1].id}" %>'><%= batch_article[1].title %></a></h2>
-        <p><%= batch_article[1].description %></p>
-        <% if batch_article[1].user_id == current_user&.id %>
-        <a href="/article/<%= batch_article[1].id %>/edit"><i class="fa fa-edit"></i> Edit</p>
-        <% end %>
-      </div>
+        <%= render 'list_item', article: batch_article[1], color: '#bbb' %>
       <% end %>
     </div>
 
     <div class="row">
       <% if batch_article[2].present? %>
-      <div class="index-column" style="background-color:#ccc;">
-        <h2><a href='<%= batch_article[2].link.present? ? batch_article[2].link : "/article/#{batch_article[2].id}" %>'><%= batch_article[2].title %></a></h2>
-        <p><%= batch_article[2].description %></p>
-        <% if batch_article[2].user_id == current_user&.id %>
-        <a href="/article/<%= batch_article[2].id %>/edit"><i class="fa fa-edit"></i> Edit</p>
-        <% end %>
-      </div>
+        <%= render 'list_item', article: batch_article[2], color: '#ccc' %>
       <% end %>
       <% if batch_article[3].present? %>
-      <div class="index-column" style="background-color:#ddd;">
-        <h2><a href='<%= batch_article[3].link.present? ? batch_article[3].link : "/article/#{batch_article[3].id}" %>'><%= batch_article[3].title %></a></h2>
-        <p><%= batch_article[3].description %></p>
-        <% if batch_article[3].user_id == current_user&.id %>
-        <a href="/article/<%= batch_article[3].id %>/edit"><i class="fa fa-edit"></i> Edit</p>
-        <% end %>
-      </div>
+        <%= render 'list_item', article: batch_article[3], color: '#ddd' %>
       <% end %>
     </div>
   <% end %>

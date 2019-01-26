@@ -33,6 +33,17 @@ class ArticleController < ApplicationController
 		redirect_to article_path(id: params[:article_id]), flash: {notice: 'Comment created successfully'}
 	end
 
+	def article_vote
+		@article = Article.find(params[:article_id])
+		if params[:voted].to_s == 'true'
+			@article.update_attribute(:upvote_user_ids, (@article.upvote_user_ids + [current_user.id]))
+			@article.update_attribute(:downvote_user_ids, (@article.downvote_user_ids - [current_user.id]))
+		else
+			@article.update_attribute(:downvote_user_ids, (@article.downvote_user_ids + [current_user.id]))
+			@article.update_attribute(:upvote_user_ids, (@article.upvote_user_ids - [current_user.id]))
+		end
+		render json: {upvote: @article.upvote_user_ids.count, downvote: @article.downvote_user_ids.count}
+	end
 	private
     def article_params
       params.require(:article).permit(:title,:description,:link)

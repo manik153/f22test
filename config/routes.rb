@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   root 'article#index'
   resources :article do
   	post 'create_comment'
+  	post 'article_vote'
   end
 end

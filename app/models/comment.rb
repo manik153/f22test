@@ -4,5 +4,5 @@ class Comment < ApplicationRecord
 
   has_many :comments, as: :reply
 
-  serialize :helpful_user_ids, Array
+  serialize :helpful_user_ids, Set
 end

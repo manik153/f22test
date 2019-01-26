@@ -1,0 +1,10 @@
+<div class="index-column" style="background-color:<%= color %>;">
+<h2><a href='<%= article.link.present? ? article.link : "/article/#{article.id}" %>'><%= article.title %></a></h2>
+<h5>Posted by <%= article.user.email %></h5>
+<% if article.user_id == current_user&.id %>
+<a href="/article/<%= article.id %>/edit"><i class="fa fa-edit"></i> Edit</p>
+<% elsif user_signed_in? %>
+<a href="Javascript:void(0);" onclick="upvoteArticle(<%= article.id %>)"><i class="fa fa-thumbs-up"></i> Upvote(<span id="upvote-article-counter-<%= article.id %>"><%= article.upvote_user_ids.count %></span>)</p>
+<a href="Javascript:void(0);" onclick="downvoteArticle(<%= article.id %>)"><i class="fa fa-thumbs-down"></i> Downvote(<span id="downvote-article-counter-<%= article.id %>"><%= article.downvote_user_ids.count %></span>)</p>
+<% end %>
+</div>
