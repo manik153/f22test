@@ -13,14 +13,14 @@
 
     <div class="row">
       <% if batch_article[0].present? %>
-      <div class="index-column" style="background-color:#aaa;" onclick="window.location='/article/<%= batch_article[0].id %>'">
-        <h2><%= batch_article[0].title %></h2>
+      <div class="index-column" style="background-color:#aaa;">
+        <h2><a href='<%= batch_article[0].link.present? ? batch_article[0].link : "/article/#{batch_article[0].id}" %>'><%= batch_article[0].title %></a></h2>
         <p><%= batch_article[0].description %></p>
       </div>
       <% end %>
       <% if batch_article[1].present? %>
-      <div class="index-column" style="background-color:#bbb;" onclick="window.location='/article/<%= batch_article[1].id %>'">
-        <h2><%= batch_article[1].title %></h2>
+      <div class="index-column" style="background-color:#bbb;">
+        <h2><a href='<%= batch_article[1].link.present? ? batch_article[1].link : "/article/#{batch_article[1].id}" %>'><%= batch_article[1].title %></a></h2>
         <p><%= batch_article[1].description %></p>
       </div>
       <% end %>
@@ -28,14 +28,14 @@
 
     <div class="row">
       <% if batch_article[2].present? %>
-      <div class="index-column" style="background-color:#ccc;" onclick="window.location='/article/<%= batch_article[2].id %>'">
-        <h2><%= batch_article[2].title %></h2>
+      <div class="index-column" style="background-color:#ccc;">
+        <h2><a href='<%= batch_article[2].link.present? ? batch_article[2].link : "/article/#{batch_article[2].id}" %>'><%= batch_article[2].title %></a></h2>
         <p><%= batch_article[2].description %></p>
       </div>
       <% end %>
       <% if batch_article[3].present? %>
-      <div class="index-column" style="background-color:#ddd;" onclick="window.location='/article/<%= batch_article[3].id %>'">
-        <h2><%= batch_article[3].title %></h2>
+      <div class="index-column" style="background-color:#ddd;">
+        <h2><a href='<%= batch_article[3].link.present? ? batch_article[3].link : "/article/#{batch_article[3].id}" %>'><%= batch_article[3].title %></a></h2>
         <p><%= batch_article[3].description %></p>
       </div>
       <% end %>
