@@ -1,4 +1,3 @@
-<div>
 <h2><%= @article.title %></a></h2>
 <h5>Posted by <%= @article.user.email %></h5>
 <p><%= @article.description %></p>
@@ -14,8 +13,6 @@
 <%= f.hidden_field :reply_type, value: 'Article' %>
 <div class="field">
 <%= f.text_area :content, required: true %>
-</div>
-
 </div>
 <%= f.submit "Comment" %>
 <% end %>
