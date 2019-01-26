@@ -1,21 +1,4 @@
 <%= form_for @article, url: {action: "create"}, html: {} do |f| %>
-
-<div class="field">
-<label>Title</label><br>
-<%= f.text_field :title, required: true %>
-</div>
-
-
-<div class="field">
-<label>Description</label><br>
-<%= f.text_field :description, required: true %>
-
-</div>
-<div class="field">
-<label>URL</label><br>
-<%= f.text_field :link %>
-
-</div>
+<%= render 'form', f: f %>
 <%= f.submit "Create" %>
 <% end %>
-

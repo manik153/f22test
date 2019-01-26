@@ -9,6 +9,15 @@ class ArticleController < ApplicationController
 		@article = Article.new
 	end
 
+	def edit
+		@article = current_user.articles.find_by_id(params[:id])
+	end
+
+	def update
+		current_user.articles.find_by_id(params[:id]).update_attributes(article_params)
+		redirect_to :root, flash: {notice: 'Article updated successfully'}		
+	end
+
 	def create
 		current_user.articles.create(article_params)
 		redirect_to :root, flash: {notice: 'Article created successfully'}
