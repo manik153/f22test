@@ -5,7 +5,7 @@
 #   gem 'sqlite3'
 #
 development:
-  adapter: mysql2
+  adapter: postgresql
   encoding: utf8
   username: root
   password: secret
@@ -15,13 +15,17 @@ development:
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
-  adapter: mysql2
+  adapter: postgresql
   encoding: utf8
   username: root
   password: secret
   database: f22_hard_app_test
 
 production:
-  adapter: mysql2
+  adapter: postgresql
   encoding: utf8
-  url: <%= ENV['DATABASE_URL'] %>
+  username: quaeldjpltburi
+  password: 34fad6a502b693717c99b08dfd23d06b1e0aa13470c212edd49a332c6ec93082
+  database: df4m6urqa45b7e
+  port: 5432
+  host: ec2-107-22-162-8.compute-1.amazonaws.com
